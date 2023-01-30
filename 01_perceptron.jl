@@ -14,7 +14,7 @@ activate(f, z) = f(z)
 predict(x, w, f=step) = activate(f, ∑(w, x))
 
 # Train the Perceptron by adjusting weights based on desired output
-function train(x::Matrix{Float64}, labels::Vector{Float64}, α::Float64)
+function train(x::Matrix{Float64}, labels::Vector{Float64}, α = 0.1)
     rows = size(x)[1] # Number of rows in the dataset
     inputsize = size(x)[2] # Number of columns in one row (inputs)
     w = initweights(inputsize)
