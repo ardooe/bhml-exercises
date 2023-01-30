@@ -6,3 +6,6 @@ activate(z) = z < 0 ? 0 : 1
 
 # The function that sums the dot product of given inputs and weights
 ∑(x, w) = sum(.*(x, w))
+
+# Predict the output with given input and weights
+predict(x, w) = activate(∑(w, x))
