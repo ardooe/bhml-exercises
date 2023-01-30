@@ -1,5 +1,5 @@
-# Initialize weights with random numbers, given matrix size
-initweights(x, y) = rand(y, x)
+# Initialize weights with random numbers and return as a Vector.
+initweights(x, y = 1) = vec(rand(y, x))
 
 # Heaviside step function
 step(z) = z < 0 ? 0 : 1
