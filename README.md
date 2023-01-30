@@ -6,4 +6,5 @@ These exercices are done with the [Julia programming language](https://julialang
 
 ### Running
 
-`julia 01_perceptron.jl`
+- Load the file in Julia REPL with the command `include("./01_perceptron.jl")`
+
