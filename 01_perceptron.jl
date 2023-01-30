@@ -1,2 +1,2 @@
 # Heaviside step (activation) function
-step(z) = z < 0 ? 0 : 1
+activate(z) = z < 0 ? 0 : 1
