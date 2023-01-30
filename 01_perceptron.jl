@@ -2,7 +2,7 @@
 initweights(x, y = 1) = vec(rand(y, x))
 
 # Heaviside step function
-step(z) = z < 0 ? 0 : 1
+step(z, θ = 0) = z < θ ? 0 : 1
 
 # Generic activation function
 activate(f, z) = f(z)
