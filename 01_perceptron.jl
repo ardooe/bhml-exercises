@@ -2,16 +2,17 @@
 initweights(x, y=1) = vec(rand(y, x))
 
 # Heaviside step function
-step(z, θ=0) = z < θ ? 0 : 1
+θ(z, treshold=0) = z < treshold ? 0 : 1
 
 # Generic activation function
-activate(f, z) = f(z)
+activate(z, f) = f(z)
 
 # The function that sums the dot product of given inputs and weights
 ∑(x, w) = sum(x .* w)
 
-# Predict the output with given input and weights
-predict(x, w, f=step) = activate(f, ∑(w, x))
+# Predict the output with given input and weights, default activation function
+# is θ (Heaviside)
+predict(x, w, f=θ) = activate(∑(w, x), f)
 
 # Train the Perceptron by adjusting weights based on desired output
 function train(x::Matrix{Float64}, labels::Vector{Float64}, α=0.1)
@@ -23,7 +24,7 @@ function train(x::Matrix{Float64}, labels::Vector{Float64}, α=0.1)
         y = labels[i] # The desired output for this row (label)
         data = x[i, :] # Data in current row (vector)
 
-        ŷ = predict(x[i, :], w) # Prediction with the current weights
+        ŷ = predict(data, w) # Prediction with the current weights
        
         w += α * (ŷ - y) * data # Update the weights if necessary (ŷ - y > 0)
     end
