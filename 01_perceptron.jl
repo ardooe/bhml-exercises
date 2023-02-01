@@ -26,7 +26,7 @@ function train(x::Matrix{Float64}, labels::Vector{Float64}, α=0.1)
 
         ŷ = predict(data, w) # Prediction with the current weights
        
-        w += α * (ŷ - y) * data # Update the weights if necessary (ŷ - y > 0)
+        w += α * (ŷ - y) * data # Update the weights if necessary (ŷ - y != 0)
     end
     w # Return the weights
 end
